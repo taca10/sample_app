@@ -20,4 +20,5 @@
 /node_modules
 /yarn-error.log
 
+# Ignore Spring files.
 .byebug_history
