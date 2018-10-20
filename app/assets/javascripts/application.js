@@ -15,3 +15,30 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(document).on('turbolinks:load', function(){
+  $("input").on("click", function(){
+  })
+});
+
+$(function(){
+  $('#new_micropost').on('submit', function(e){
+    e.preventDefault();
+    var formData = new FormData(this);
+    var url = $(this).attr('action')
+    $.ajax({
+      url: "/microposts",
+      type: "POST",
+      data: formData,
+      dataType: 'json',
+      processData: false,
+      contentType: false
+    })
+    .done(function(data){
+      console.log(data);
+    })
+    .fail(function(data){
+      console.log('hoge');
+    })
+  })
+})
